@@ -1,6 +1,7 @@
 const binarySearch = require('./binarySearch')
 const quickSort = require('./quicksort')
 const selectionSort = require('./selectionSort')
+const { get, set, clear } = require('./hash')
 
 describe("test binarySearch", () => {
   const BINARY_SEARCH_ERROR = "First argument must be an array"
@@ -88,5 +89,29 @@ describe("test selectionSort", () => {
     } catch (e) {
       expect(e.message).toBe(SELECTION_SORT_ERROR);
     }
+  })
+})
+
+describe("test hash", () => {
+  afterEach(() => {
+    clear();
+  })
+  it("should return undefined when the key is not in the hash", () => {
+    expect(get('key')).toBe(undefined);
+  })
+  it("should return the value of the key when it is the only value for that key", () => {
+    set('key', 'value');
+    expect(get('key')).toBe('value');
+    clear();
+    set('key', 1);
+    expect(get('key')).toBe(1);
+    clear();
+    set(1, true);
+    expect(get(1)).toBe(true);
+  })
+  it("should return all values of the key when there are multiple", () => {
+    set('key', 'value');
+    set('key', 'value2');
+    expect(get('key')).toEqual(['value', 'value2']);
   })
 })

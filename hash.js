@@ -21,8 +21,19 @@ function set(key, value) {
 }
 
 function get(value) {
-  return hashTable[hash(value)];
+  const result = hashTable[hash(value)];
+  if (result === undefined) {
+    return undefined;
+  }
+  return result.length === 1 ? result[0] : result;
 }
 
-set('test', 10);
-console.log(get('test'))
+function clear() {
+  hashTable = new Array(TABLE_SIZE);
+}
+
+module.exports = {
+  set,
+  get, 
+  clear
+}
