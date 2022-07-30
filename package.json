@@ -1,0 +1,22 @@
+{
+  "name": "eda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "binarySearch.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laviodias/eda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laviodias/eda/issues"
+  },
+  "homepage": "https://github.com/laviodias/eda#readme",
+  "dependencies": {
+    "jest": "^28.1.3"
+  }
+}

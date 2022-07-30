@@ -1,4 +1,7 @@
 function binarySearch(array, number) {
+  if(!array || !Array.isArray(array)) {
+    throw new Error('First argument must be an array');
+  }
   let start = 0
   let end = array.length - 1
   while (start <= end) {
@@ -13,4 +16,4 @@ function binarySearch(array, number) {
   return -1
 }
 
-console.log(binarySearch([0, 1, 2, 3, 4, 5, 6, 7, 8], 4))
+module.exports = binarySearch
