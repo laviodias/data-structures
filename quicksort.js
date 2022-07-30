@@ -1,4 +1,7 @@
 function quickSort(array) {
+  if(!array || !Array.isArray(array)) {
+    throw new Error('Argument must be an array');
+  }
   if (array.length < 2) {
     return array
   }
@@ -10,4 +13,4 @@ function quickSort(array) {
   return quickSort(left).concat(pivot).concat(quickSort(right))
 }
 
-console.log(quickSort([3, 1, 9, 12, 4, 5, 0, 41, 11,2]))
+module.exports = quickSort
