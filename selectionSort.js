@@ -10,6 +10,9 @@ function findMin(array) {
 }
 
 function selectionSort(array) {
+  if(!array || !Array.isArray(array)) {
+    throw new Error('Argument must be an array');
+  }
   let newArray = []
   const arraySize = array.length
   while (newArray.length < arraySize) {
@@ -21,4 +24,4 @@ function selectionSort(array) {
   return newArray
 }
 
-console.log(selectionSort([8, 2, 1, 0, 21, 5]))
+module.exports = selectionSort

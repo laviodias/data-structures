@@ -1,5 +1,6 @@
 const binarySearch = require('./binarySearch')
 const quickSort = require('./quicksort')
+const selectionSort = require('./selectionSort')
 
 describe("test binarySearch", () => {
   const BINARY_SEARCH_ERROR = "First argument must be an array"
@@ -58,6 +59,34 @@ describe("test quickSort", () => {
       expect(true).toBe(false);
     } catch (e) {
       expect(e.message).toBe(QUICKSORT_ERROR);
+    }
+  })
+})
+
+describe("test selectionSort", () => {
+  const SELECTION_SORT_ERROR = "Argument must be an array"
+  it("should sort the array", () => {
+    expect(selectionSort([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+    expect(selectionSort([5, 4, 3, 2, 1])).toEqual([1, 2, 3, 4, 5]);
+    expect(selectionSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(selectionSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  })
+  it("should throw error when the array is null", () => {
+    try {
+      selectionSort(null);
+      // Fail test if above expression doesn't throw anything.
+      expect(true).toBe(false);
+    } catch (e) {
+      expect(e.message).toBe(SELECTION_SORT_ERROR);
+    }
+  })
+  it("should throw error when the first argument is not an array", () => {
+    try {
+      selectionSort({});
+      // Fail test if above expression doesn't throw anything.
+      expect(true).toBe(false);
+    } catch (e) {
+      expect(e.message).toBe(SELECTION_SORT_ERROR);
     }
   })
 })
