@@ -8,6 +8,12 @@ describe("test Node class", () => {
     expect(node.getLeft()).toBe(null);
     expect(node.getRight()).toBe(null);
   })
+
+  it("should throw error when data is not provided", () => {
+    expect(() => {
+      new Node();
+    }).toThrowError("Data is required");
+  })
 })
 
 describe("test Tree class", () => {

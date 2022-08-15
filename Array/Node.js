@@ -1,23 +1,23 @@
 class Node {
   constructor(data) {
-    if(data === null || data === undefined){
+    if(data === null || data === undefined) {
       throw new Error("Data is required");
     }
     this.data = data;
-    this.left = null;
-    this.right = null;
+    this.previous = null;
+    this.next = null;
   }
 
   getData() {
     return this.data;
   }
 
-  getLeft() {
-    return this.left;
+  getNext() {
+    return this.next;
   }
 
-  getRight() {
-    return this.right;
+  getPrevious() {
+    return this.previous;
   }
 }
 
