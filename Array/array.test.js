@@ -104,5 +104,22 @@ describe("Test Array class", () => {
     ARRAY_VALUES.forEach((value, index) => {
       expect(consoleSpy.mock.calls[index][0]).toBe(value);
     })
+    consoleSpy.mockRestore();
+  })
+
+  it("should print the array in reverse", () => {
+    const consoleSpy = jest.spyOn(console, 'log');
+
+    const ARRAY_VALUES = [1, 2, 3, 4, 5];
+    ARRAY_VALUES.forEach(value => {
+      array.push(value);
+    });
+    array.print_reverse();
+    expect(consoleSpy).toHaveBeenCalledTimes(ARRAY_VALUES.length);
+    ARRAY_VALUES.reverse().forEach((value, index) => {
+      expect(consoleSpy.mock.calls[index][0]).toBe(value);
+    });
+    consoleSpy.mockRestore();
+
   })
 })

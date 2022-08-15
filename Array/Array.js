@@ -75,6 +75,14 @@ class Array {
     }
   }
 
+  print_reverse() {
+    let current = this.tail;
+    while (current) {
+      console.log(current.data);
+      current = current.previous;
+    }
+  }
+
   access(index) {
     let current = this.head;
     let count = 0;
